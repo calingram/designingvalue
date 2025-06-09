@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Pillars Diagnostic | Designing Value</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Four Pillars Diagnostic</h1>
+            <p>Four questions to discover your business archetype and identify your primary growth opportunity.</p>
+        </div>
+
+        <div class="diagnostic-container" id="assessment">
+            <div class="question">
+                <h3>What's your biggest challenge right now?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="challenge" value="presence">
+                        <div class="option-text">Nobody knows about the great work I do</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="challenge" value="systems">
+                        <div class="option-text">I'm overwhelmed - everything depends on me</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="challenge" value="positioning">
+                        <div class="option-text">I'm always competing on price</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="challenge" value="growth">
+                        <div class="option-text">I'm busy but not building anything valuable</div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>How do prospects typically find you?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="discovery" value="presence">
+                        <div class="option-text">Referrals from the same few contacts</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="discovery" value="systems">
+                        <div class="option-text">Word of mouth about my personal expertise</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="discovery" value="positioning">
+                        <div class="option-text">They're shopping around for the best price</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="discovery" value="growth">
+                        <div class="option-text">They need someone reliable and available</div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Which statement best describes your business?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="description" value="presence">
+                        <div class="option-text">High quality with great systems, but invisibile</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="description" value="systems">
+                        <div class="option-text">High demand and clear positioning, but chaotic</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="description" value="positioning">
+                        <div class="option-text">Well-known and organised, but taking any work</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="description" value="growth">
+                        <div class="option-text">Smooth operations and visibility, but no lasting value</div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>What metaphor resonates most with you?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="metaphor" value="presence">
+                        <div class="option-text">A lighthouse with no beam</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="metaphor" value="systems">
+                        <div class="option-text">An artist creating unique masterpieces</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="metaphor" value="positioning">
+                        <div class="option-text">Water flowing wherever it can</div>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="metaphor" value="growth">
+                        <div class="option-text">A master chef making the same dish every night</div>
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" class="calculate-btn" id="calculateBtn" onclick="calculateArchetype()">
+                Discover Your Archetype
+            </button>
+        </div>
+
+        <div class="email-capture" id="emailCapture">
+            <h2>Get Your Results</h2>
+            <p>Enter your email to discover your business archetype and receive your personalized action plan.</p>
+            
+            <div class="privacy-notice">
+                <label class="consent-checkbox">
+                    <input type="checkbox" id="consentCheck" required>
+                    <span>I consent to Cal Ingram contacting me about business growth opportunities. Your email will only be used for follow-up and won't be shared with third parties.</span>
+                </label>
+            </div>
+            
+            <form class="email-form" onsubmit="submitEmail(event)">
+                <input type="email" class="email-input" placeholder="your@email.com" required id="emailInput">
+                <button type="submit" class="email-submit">Get Results</button>
+            </form>
+            <span class="skip-link" onclick="showResults(currentArchetype)">Skip for now</span>
+        </div>
+
+        <div class="results" id="results">
+            <div class="archetype-name" id="archetypeName"></div>
+            <div class="archetype-subtitle" id="archetypeSubtitle"></div>
+            <div class="archetype-description">
+                <div class="archetype-quote" id="archetypeQuote"></div>
+                <div id="archetypeDescription"></div>
+            </div>
+            <div class="next-steps">
+                <h4>Your Next Step</h4>
+                <div id="nextSteps"></div>
+            </div>
+            <button type="button" class="restart-btn" onclick="restartAssessment()">
+                Take Assessment Again
+            </button>
+        </div>
+
+        <div class="footer">
+            <p>Diagnostic tool by <a href="https://designingvalue.uk" target="_blank">Designing Value</a></p>
+        </div>
+    </div>
+
+    <script src="assessment.js"></script>
+</body>
+</html>
